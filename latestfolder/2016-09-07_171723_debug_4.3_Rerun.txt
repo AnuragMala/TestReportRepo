@@ -1,0 +1,2537 @@
+==============================================================================
++ START SUITE: Robot [ ]
+==============================================================================
++- START SUITE: Robot.Tests [ ]
+==============================================================================
++-- START SETUP: test suite setup [ ]
++--- START KW: ${now} = BuiltIn.Get Time [ ]
+${now} = 2016-09-07 17:17:27
++--- END KW: ${now} = BuiltIn.Get Time (16)
++--- START KW: BuiltIn.Set Global Variable [ ${SuiteStartTime} | ${now} ]
+${SuiteStartTime} = 2016-09-07 17:17:27
++--- END KW: BuiltIn.Set Global Variable (0)
++-- END SETUP: test suite setup (32)
+==============================================================================
++-- START SUITE: Robot.Tests.Functional Tests [ ]
+==============================================================================
++--- START SUITE: Robot.Tests.Functional Tests.Start Application [ ]
+==============================================================================
++---- START TEST: Start PC Detector Application [ ]
+------------------------------------------------------------------------------
++----- START SETUP: Test Case Setup [ ]
++------ START KW: PCDetectorKeywords.Copy Configuration File [ ${Configuration_All_Streaming_Active} ]
+SourceFile:  C:\PCDetector_Testing\Testing\Resources\ConfigurationFiles\TTX_WatercastProp_AllStreaming1234.cfg
+DestinationFile:  F:\civolution\Cfg\TTX_WatercastProp.cfg
+FileExists value:  True
++------ END KW: PCDetectorKeywords.Copy Configuration File (15)
++------ START KW: PCDetectorKeywords.Copy License File [ ${License_All_Features_Active} ]
+SourceFile:  C:\PCDetector_Testing\Testing\Resources\LicenseFiles\TeletraxCVBSSVIDDetector_All_Features_Activated.lic
+DestinationFile:  F:\civolution\TeletraxCVBSSVIDDetector.lic
+FileExists value:  True
++------ END KW: PCDetectorKeywords.Copy License File (16)
++----- END SETUP: Test Case Setup (47)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: PCDetector.Start Application [ ]
+License warning not found, no need to make it disappear
++----- END KW: PCDetector.Start Application (33025)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++----- END KW: BuiltIn.Sleep (15048)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: PCDetector.Maximize Application Window [ ]
+[log] CLICK on L(214,121)@S(0)[0,0 1460x963]
+[log] CLICK on L(1081,122)@S(0)[0,0 1460x963]
++----- END KW: PCDetector.Maximize Application Window (2059)
+------------------------------------------------------------------------------
++---- END TEST: Start PC Detector Application (50179)
+------------------------------------------------------------------------------
++--- END SUITE: Robot.Tests.Functional Tests.Start Application (51568)
+==============================================================================
++--- START SUITE: Robot.Tests.Functional Tests.Start and Stop Channels [ ]
+==============================================================================
++---- START TEST: Stop and Start Every Channel In Configuration, One By One [ ]
+------------------------------------------------------------------------------
++----- START SETUP: ChannelRegion.Confirm All Errors [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++----- END SETUP: ChannelRegion.Confirm All Errors (13562)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${NrOfChannels} = PCDetectorKeywords.Number Of Channels In Configuration [ non-UDP ]
+${NrOfChannels} = 4
++----- END KW: ${NrOfChannels} = PCDetectorKeywords.Number Of Channels In Configuration (0)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${channel} IN RANGE [ 1 | ${NrOfChannels} + 1 ] [ ]
++------ START KW: ${channel} = 1 [ ]
++------- START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------- END KW: ${region} = ChannelRegion.Channel Region (47)
++------- START KW: ChannelRegion.Stop Channel [ ${region} ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Warning pop-up Window found
++------- END KW: ChannelRegion.Stop Channel (9232)
++------- START KW: RobotChecks.Check That [ Channel Stopped | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++-------- START KW: ChannelRegion.Channel Stopped [ ${region} ]
+Channel Confirm Error : Not active
++-------- END KW: ChannelRegion.Channel Stopped (3540)
+'Channel Stopped ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'Channel Stopped ${region} [True]' = 'True'
++-------- START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++-------- END KW: CheckOperator.= (16)
+Requirement check on 'Channel Stopped ${region} [True] = True' after 3 seconds
++------- END KW: RobotChecks.Check That (3587)
++------- START KW: ChannelRegion.Start Channel [ ${region} ]
+Channel Confirm Error : Not active
+Warning pop-up Window found
++------- END KW: ChannelRegion.Start Channel (5232)
++------- START KW: RobotChecks.Check That [ Channel Busy | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++-------- START KW: ChannelRegion.Channel Busy [ ${region} ]
+Channel Confirm Error : Not active
++-------- END KW: ChannelRegion.Channel Busy (3210)
+'Channel Busy ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'Channel Busy ${region} [True]' = 'True'
++-------- START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++-------- END KW: CheckOperator.= (16)
+Requirement check on 'Channel Busy ${region} [True] = True' after 3 seconds
++------- END KW: RobotChecks.Check That (3273)
++------ END KW: ${channel} = 1 (21371)
++------ START KW: ${channel} = 2 [ ]
++------- START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,142 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------- END KW: ${region} = ChannelRegion.Channel Region (47)
++------- START KW: ChannelRegion.Stop Channel [ ${region} ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Warning pop-up Window found
++------- END KW: ChannelRegion.Stop Channel (8195)
++------- START KW: RobotChecks.Check That [ Channel Stopped | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++-------- START KW: ChannelRegion.Channel Stopped [ ${region} ]
+Channel Confirm Error : Not active
++-------- END KW: ChannelRegion.Channel Stopped (3386)
+'Channel Stopped ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'Channel Stopped ${region} [True]' = 'True'
++-------- START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++-------- END KW: CheckOperator.= (16)
+Requirement check on 'Channel Stopped ${region} [True] = True' after 3 seconds
++------- END KW: RobotChecks.Check That (3417)
++------- START KW: ChannelRegion.Start Channel [ ${region} ]
+Channel Confirm Error : Not active
+Warning pop-up Window found
++------- END KW: ChannelRegion.Start Channel (5193)
++------- START KW: RobotChecks.Check That [ Channel Busy | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++-------- START KW: ChannelRegion.Channel Busy [ ${region} ]
+Channel Confirm Error : Not active
++-------- END KW: ChannelRegion.Channel Busy (3071)
+'Channel Busy ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'Channel Busy ${region} [True]' = 'True'
++-------- START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++-------- END KW: CheckOperator.= (0)
+Requirement check on 'Channel Busy ${region} [True] = True' after 3 seconds
++------- END KW: RobotChecks.Check That (3118)
++------ END KW: ${channel} = 2 (19986)
++------ START KW: ${channel} = 3 [ ]
++------- START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,208 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------- END KW: ${region} = ChannelRegion.Channel Region (31)
++------- START KW: ChannelRegion.Stop Channel [ ${region} ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Warning pop-up Window found
++------- END KW: ChannelRegion.Stop Channel (8187)
++------- START KW: RobotChecks.Check That [ Channel Stopped | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++-------- START KW: ChannelRegion.Channel Stopped [ ${region} ]
+Channel Confirm Error : Not active
++-------- END KW: ChannelRegion.Channel Stopped (3103)
+'Channel Stopped ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'Channel Stopped ${region} [True]' = 'True'
++-------- START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++-------- END KW: CheckOperator.= (0)
+Requirement check on 'Channel Stopped ${region} [True] = True' after 3 seconds
++------- END KW: RobotChecks.Check That (3165)
++------- START KW: ChannelRegion.Start Channel [ ${region} ]
+Channel Confirm Error : Not active
+Warning pop-up Window found
++------- END KW: ChannelRegion.Start Channel (5131)
++------- START KW: RobotChecks.Check That [ Channel Busy | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++-------- START KW: ChannelRegion.Channel Busy [ ${region} ]
+Channel Confirm Error : Not active
++-------- END KW: ChannelRegion.Channel Busy (3071)
+'Channel Busy ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'Channel Busy ${region} [True]' = 'True'
++-------- START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++-------- END KW: CheckOperator.= (0)
+Requirement check on 'Channel Busy ${region} [True] = True' after 3 seconds
++------- END KW: RobotChecks.Check That (3118)
++------ END KW: ${channel} = 3 (19648)
++------ START KW: ${channel} = 4 [ ]
++------- START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,274 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------- END KW: ${region} = ChannelRegion.Channel Region (31)
++------- START KW: ChannelRegion.Stop Channel [ ${region} ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Warning pop-up Window found
++------- END KW: ChannelRegion.Stop Channel (8426)
++------- START KW: RobotChecks.Check That [ Channel Stopped | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++-------- START KW: ChannelRegion.Channel Stopped [ ${region} ]
+Channel Confirm Error : Not active
++-------- END KW: ChannelRegion.Channel Stopped (3290)
+'Channel Stopped ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'Channel Stopped ${region} [True]' = 'True'
++-------- START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++-------- END KW: CheckOperator.= (0)
+Requirement check on 'Channel Stopped ${region} [True] = True' after 3 seconds
++------- END KW: RobotChecks.Check That (3337)
++------- START KW: ChannelRegion.Start Channel [ ${region} ]
+Channel Confirm Error : Not active
+Warning pop-up Window found
++------- END KW: ChannelRegion.Start Channel (5161)
++------- START KW: RobotChecks.Check That [ Channel Busy | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++-------- START KW: ChannelRegion.Channel Busy [ ${region} ]
+Channel Confirm Error : Not active
++-------- END KW: ChannelRegion.Channel Busy (3071)
+'Channel Busy ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'Channel Busy ${region} [True]' = 'True'
++-------- START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++-------- END KW: CheckOperator.= (0)
+Requirement check on 'Channel Busy ${region} [True] = True' after 3 seconds
++------- END KW: RobotChecks.Check That (3118)
++------ END KW: ${channel} = 4 (20088)
++----- END KW: ${channel} IN RANGE [ 1 | ${NrOfChannels} + 1 ] (81139)
+------------------------------------------------------------------------------
++---- END TEST: Stop and Start Every Channel In Configuration, One By One (94732)
+------------------------------------------------------------------------------
++---- START TEST: Stop All Channels when All Channels Busy [ ]
+------------------------------------------------------------------------------
++----- START SETUP: ChannelRegion.Confirm All Errors [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++----- END SETUP: ChannelRegion.Confirm All Errors (12720)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ All Channels Busy ]
++------ START KW: ChannelRegion.All Channels Busy [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.All Channels Busy (12490)
+'All Channels Busy' is 'True'
+Precondition check on 'All Channels Busy [True]'
+All Channels Busy
++----- END KW: RobotChecks.Check Precondition (12490)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Stop All Channels [ ]
+Warning pop-up Window found
++----- END KW: ChannelRegion.Stop All Channels (3619)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Confirm All Errors [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++----- END KW: ChannelRegion.Confirm All Errors (12471)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ All Channels Stopped | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelRegion.All Channels Stopped [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.All Channels Stopped (12551)
+'All Channels Stopped' is 'True'
+Requirement check on 'All Channels Stopped [True]' after 12 seconds
+All Channels Stopped
++----- END KW: RobotChecks.Check That (12583)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Start All Channels [ ]
+Warning pop-up Window found
++----- END KW: ChannelRegion.Start All Channels (3182)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ All Channels Busy | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelRegion.All Channels Busy [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.All Channels Busy (12540)
+'All Channels Busy' is 'True'
+Requirement check on 'All Channels Busy [True]' after 12 seconds
+All Channels Busy
++----- END KW: RobotChecks.Check That (12556)
+------------------------------------------------------------------------------
++---- END TEST: Stop All Channels when All Channels Busy (69637)
+------------------------------------------------------------------------------
++---- START TEST: Stop All Channels when Some Channels Busy [ ]
+------------------------------------------------------------------------------
++----- START SETUP: ChannelRegion.Confirm All Errors [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++----- END SETUP: ChannelRegion.Confirm All Errors (12689)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ All Channels Busy ]
++------ START KW: ChannelRegion.All Channels Busy [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.All Channels Busy (12505)
+'All Channels Busy' is 'True'
+Precondition check on 'All Channels Busy [True]'
+All Channels Busy
++----- END KW: RobotChecks.Check Precondition (12505)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${region} = shared_keywords.Region For Channel 2 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,142 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (31)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3266)
+${region} = R[12,142 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 2 (3313)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Stop Channel [ ${region} ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Warning pop-up Window found
++----- END KW: ChannelRegion.Stop Channel (9261)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++----- END KW: ChannelRegion.Confirm Error (3087)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ Channel Stopped | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelRegion.Channel Stopped [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Channel Stopped (3118)
+'Channel Stopped ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'Channel Stopped ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (15)
+Requirement check on 'Channel Stopped ${region} [True] = True' after 3 seconds
+Channel Stopped, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (3148)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${region} = shared_keywords.Region For Channel 4 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,274 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (47)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3071)
+${region} = R[12,274 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 4 (3118)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Stop Channel [ ${region} ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Warning pop-up Window found
++----- END KW: ChannelRegion.Stop Channel (7703)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++----- END KW: ChannelRegion.Confirm Error (3102)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ Channel Stopped | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelRegion.Channel Stopped [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Channel Stopped (3103)
+'Channel Stopped ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'Channel Stopped ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Requirement check on 'Channel Stopped ${region} [True] = True' after 3 seconds
+Channel Stopped, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (3134)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Stop All Channels [ ]
+Warning pop-up Window found
++----- END KW: ChannelRegion.Stop All Channels (2761)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Confirm All Errors [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++----- END KW: ChannelRegion.Confirm All Errors (12426)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ All Channels Stopped | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelRegion.All Channels Stopped [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.All Channels Stopped (12532)
+'All Channels Stopped' is 'True'
+Requirement check on 'All Channels Stopped [True]' after 12 seconds
+All Channels Stopped
++----- END KW: RobotChecks.Check That (12564)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Start All Channels [ ]
+Warning pop-up Window found
++----- END KW: ChannelRegion.Start All Channels (2901)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ All Channels Busy | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelRegion.All Channels Busy [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.All Channels Busy (12640)
+'All Channels Busy' is 'True'
+Requirement check on 'All Channels Busy [True]' after 12 seconds
+All Channels Busy
++----- END KW: RobotChecks.Check That (12656)
+------------------------------------------------------------------------------
++---- END TEST: Stop All Channels when Some Channels Busy (104431)
+------------------------------------------------------------------------------
++---- START TEST: Start All Channels when Some Channels Stopped [ ]
+------------------------------------------------------------------------------
++----- START SETUP: ChannelRegion.Confirm All Errors [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++----- END SETUP: ChannelRegion.Confirm All Errors (12583)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ All Channels Busy ]
++------ START KW: ChannelRegion.All Channels Busy [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.All Channels Busy (12472)
+'All Channels Busy' is 'True'
+Precondition check on 'All Channels Busy [True]'
+All Channels Busy
++----- END KW: RobotChecks.Check Precondition (12488)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Stop All Channels [ ]
+Warning pop-up Window found
++----- END KW: ChannelRegion.Stop All Channels (2792)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Confirm All Errors [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++----- END KW: ChannelRegion.Confirm All Errors (12426)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ All Channels Stopped | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelRegion.All Channels Stopped [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.All Channels Stopped (12551)
+'All Channels Stopped' is 'True'
+Requirement check on 'All Channels Stopped [True]' after 12 seconds
+All Channels Stopped
++----- END KW: RobotChecks.Check That (12582)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${region} = shared_keywords.Region For Channel 2 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,142 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (31)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3071)
+${region} = R[12,142 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 2 (3134)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Start Channel [ ${region} ]
+Channel Confirm Error : Not active
+Warning pop-up Window found
++----- END KW: ChannelRegion.Start Channel (5863)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ Channel Busy | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelRegion.Channel Busy [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Channel Busy (3087)
+'Channel Busy ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'Channel Busy ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Requirement check on 'Channel Busy ${region} [True] = True' after 3 seconds
+Channel Busy, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (3133)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${region} = shared_keywords.Region For Channel 3 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,208 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (47)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3086)
+${region} = R[12,208 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 3 (3133)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Start Channel [ ${region} ]
+Channel Confirm Error : Not active
+Warning pop-up Window found
++----- END KW: ChannelRegion.Start Channel (4678)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ Channel Busy | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelRegion.Channel Busy [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Channel Busy (3087)
+'Channel Busy ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'Channel Busy ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (15)
+Requirement check on 'Channel Busy ${region} [True] = True' after 3 seconds
+Channel Busy, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (3133)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Start All Channels [ ]
+Warning pop-up Window found
++----- END KW: ChannelRegion.Start All Channels (2777)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ All Channels Busy | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelRegion.All Channels Busy [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.All Channels Busy (12691)
+'All Channels Busy' is 'True'
+Requirement check on 'All Channels Busy [True]' after 12 seconds
+All Channels Busy
++----- END KW: RobotChecks.Check That (12707)
+------------------------------------------------------------------------------
++---- END TEST: Start All Channels when Some Channels Stopped (91493)
+------------------------------------------------------------------------------
++---- START TEST: Start a Channel with OperationMode Idle [ ]
+------------------------------------------------------------------------------
++----- START SETUP: ChannelRegion.Confirm All Errors [ ]
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
+Channel Confirm Error : Not active
++----- END SETUP: ChannelRegion.Confirm All Errors (12785)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: shared_keywords.Replace Configuration File [ ${Configuration_Channel_1_Idle} ]
++------ START KW: shared_keywords.Stop PC Detector Application [ ]
++------- START KW: PCDetector.Exit Application [ yes ]
+[log] CLICK on L(17,29)@S(0)[0,0 1460x963]
+[log] CLICK on L(122,116)@S(0)[0,0 1460x963]
+[log] CLICK on L(781,525)@S(0)[0,0 1460x963]
++------- END KW: PCDetector.Exit Application (4742)
++------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15047)
++------ END KW: shared_keywords.Stop PC Detector Application (19789)
++------ START KW: PCDetectorKeywords.Copy Configuration File [ ${filename} ]
+SourceFile:  C:\PCDetector_Testing\Testing\Resources\ConfigurationFiles\TTX_WatercastProp_OperationModeIdle1.cfg
+DestinationFile:  F:\civolution\Cfg\TTX_WatercastProp.cfg
+FileExists value:  True
++------ END KW: PCDetectorKeywords.Copy Configuration File (16)
++------ START KW: shared_keywords.Start PC Detector Application After 15 Seconds [ ]
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15032)
++------- START KW: PCDetectorKeywords.Kill PCDetector Process [ ]
++------- END KW: PCDetectorKeywords.Kill PCDetector Process (31)
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15031)
++------- START KW: shared_keywords.Start PC Detector Application [ ]
++-------- START KW: PCDetector.Start Application [ ]
+License warning not found, no need to make it disappear
++-------- END KW: PCDetector.Start Application (33759)
++-------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++-------- END KW: BuiltIn.Sleep (15047)
++-------- START KW: PCDetector.Maximize Application Window [ ]
+[log] CLICK on L(258,165)@S(0)[0,0 1460x963]
+[log] CLICK on L(1125,166)@S(0)[0,0 1460x963]
++-------- END KW: PCDetector.Maximize Application Window (1965)
++------- END KW: shared_keywords.Start PC Detector Application (50771)
++------ END KW: shared_keywords.Start PC Detector Application After 15 Seconds (80880)
++----- END KW: shared_keywords.Replace Configuration File (100717)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${region} = shared_keywords.Region For Channel 1 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (32)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3220)
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 1 (3282)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ Channel Stopped | ${region} | = | True ]
++------ START KW: ChannelRegion.Channel Stopped [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Channel Stopped (3137)
+'Channel Stopped ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'Channel Stopped ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Requirement check on 'Channel Stopped ${region} [True] = True'
+Channel Stopped, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (3200)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelRegion.Start Channel [ ${region} ]
+Channel Confirm Error : Not active
+Warning pop-up Window found
++----- END KW: ChannelRegion.Start Channel (6055)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ Channel Busy | ${region} | = | True ]
++------ START KW: ChannelRegion.Channel Busy [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Channel Busy (3087)
+'Channel Busy ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'Channel Busy ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Requirement check on 'Channel Busy ${region} [True] = True'
+Channel Busy, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (3133)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: shared_keywords.Replace Configuration File [ ${Configuration_All_Streaming_Active} ]
++------ START KW: shared_keywords.Stop PC Detector Application [ ]
++------- START KW: PCDetector.Exit Application [ yes ]
+[log] CLICK on L(17,29)@S(0)[0,0 1460x963]
+[log] CLICK on L(122,116)@S(0)[0,0 1460x963]
+[log] CLICK on L(781,525)@S(0)[0,0 1460x963]
++------- END KW: PCDetector.Exit Application (3620)
++------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15007)
++------ END KW: shared_keywords.Stop PC Detector Application (18642)
++------ START KW: PCDetectorKeywords.Copy Configuration File [ ${filename} ]
+SourceFile:  C:\PCDetector_Testing\Testing\Resources\ConfigurationFiles\TTX_WatercastProp_AllStreaming1234.cfg
+DestinationFile:  F:\civolution\Cfg\TTX_WatercastProp.cfg
+FileExists value:  True
++------ END KW: PCDetectorKeywords.Copy Configuration File (15)
++------ START KW: shared_keywords.Start PC Detector Application After 15 Seconds [ ]
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15047)
++------- START KW: PCDetectorKeywords.Kill PCDetector Process [ ]
++------- END KW: PCDetectorKeywords.Kill PCDetector Process (16)
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15031)
++------- START KW: shared_keywords.Start PC Detector Application [ ]
++-------- START KW: PCDetector.Start Application [ ]
+License warning not found, no need to make it disappear
++-------- END KW: PCDetector.Start Application (33556)
++-------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++-------- END KW: BuiltIn.Sleep (15023)
++-------- START KW: PCDetector.Maximize Application Window [ ]
+[log] CLICK on L(302,209)@S(0)[0,0 1460x963]
+[log] CLICK on L(1169,210)@S(0)[0,0 1460x963]
++-------- END KW: PCDetector.Maximize Application Window (2137)
++------- END KW: shared_keywords.Start PC Detector Application (50716)
++------ END KW: shared_keywords.Start PC Detector Application After 15 Seconds (80810)
++----- END KW: shared_keywords.Replace Configuration File (99483)
+------------------------------------------------------------------------------
++---- END TEST: Start a Channel with OperationMode Idle (228687)
+------------------------------------------------------------------------------
++--- END SUITE: Robot.Tests.Functional Tests.Start and Stop Channels (589182)
+==============================================================================
++--- START SUITE: Robot.Tests.Functional Tests.Enable and Disable Features [ ]
+==============================================================================
++---- START SETUP: shared_keywords.Set Ceco Length [ ${2Minutes} ]
++----- START KW: ${RestartRequired} = PCDetector.Set Ceco Length And Stop Application [ ${CecoLength} ]
+Before checking the ceco
+Scores 15_min_ceco=0.955177128315 and 2_min_ceco=0.911807954311 
+Before finding settings area
+Before finding settings input area
+Before finding Dailog Button
+Warning pop-up Window found
+${RestartRequired} = True
++----- END KW: ${RestartRequired} = PCDetector.Set Ceco Length And Stop Application (6446)
++----- START KW: BuiltIn.Run Keyword If [ ${RestartRequired} | Start PC Detector Application After 15 Seconds ]
++------ START KW: shared_keywords.Start PC Detector Application After 15 Seconds [ ]
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15007)
++------- START KW: PCDetectorKeywords.Kill PCDetector Process [ ]
++------- END KW: PCDetectorKeywords.Kill PCDetector Process (0)
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15030)
++------- START KW: shared_keywords.Start PC Detector Application [ ]
++-------- START KW: PCDetector.Start Application [ ]
+License warning not found, no need to make it disappear
++-------- END KW: PCDetector.Start Application (33914)
++-------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++-------- END KW: BuiltIn.Sleep (15047)
++-------- START KW: PCDetector.Maximize Application Window [ ]
+[log] CLICK on L(148,55)@S(0)[0,0 1460x963]
+[log] CLICK on L(1015,56)@S(0)[0,0 1460x963]
++-------- END KW: PCDetector.Maximize Application Window (2013)
++------- END KW: shared_keywords.Start PC Detector Application (50974)
++------ END KW: shared_keywords.Start PC Detector Application After 15 Seconds (81057)
++----- END KW: BuiltIn.Run Keyword If (81057)
++---- END SETUP: shared_keywords.Set Ceco Length (87519)
+------------------------------------------------------------------------------
++---- START TEST: Enable Watermarking Feature Channel 1 [ ]
+------------------------------------------------------------------------------
++----- START KW: ${region} = shared_keywords.Region For Channel 1 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (47)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3071)
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 1 (3133)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is watermarking enabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Watermarking Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Watermarking Enabled (31)
+'is watermarking enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is watermarking enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Precondition check on 'is watermarking enabled ${region} [True] = True'
+Is Watermarking Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Disable Watermarking [ ${region} ]
+Warning pop-up Window found
++----- END KW: ChannelFeatureRegion.Disable Watermarking (2777)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is watermarking disabled | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelFeatureRegion.Is Watermarking Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Watermarking Disabled (31)
+'is watermarking disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is watermarking disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Requirement check on 'is watermarking disabled ${region} [True] = True' after 0 seconds
+Is Watermarking Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (78)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Enable Watermarking [ ${region} ]
+Warning pop-up Window found
++----- END KW: ChannelFeatureRegion.Enable Watermarking (1560)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is watermarking enabled | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelFeatureRegion.Is Watermarking Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Watermarking Enabled (16)
+'is watermarking enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is watermarking enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Requirement check on 'is watermarking enabled ${region} [True] = True' after 0 seconds
+Is Watermarking Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (63)
+------------------------------------------------------------------------------
++---- END TEST: Enable Watermarking Feature Channel 1 (7705)
+------------------------------------------------------------------------------
++---- START TEST: Disable VFP CECO Feature When AFP CECO is NOT Available Channel 1 [ ]
+------------------------------------------------------------------------------
++----- START KW: ${region} = shared_keywords.Region For Channel 1 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (31)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3071)
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 1 (3134)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is vfp enabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Vfp Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Vfp Enabled (16)
+'is vfp enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is vfp enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is vfp enabled ${region} [True] = True'
+Is Vfp Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is afp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Afp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Afp Disabled (31)
+'is afp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is afp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is afp disabled ${region} [True] = True'
+Is Afp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Disable Vfp Ceco [ ${region} ]
+Warning pop-up Window found
++----- END KW: ChannelFeatureRegion.Disable Vfp Ceco (1560)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is vfp disabled | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelFeatureRegion.Is Vfp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Vfp Disabled (31)
+'is vfp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is vfp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Requirement check on 'is vfp disabled ${region} [True] = True' after 0 seconds
+Is Vfp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${NrOfCecoFiles} = shared_keywords.Generated Ceco Files For Channel 1 After 120 Seconds [ ]
++------ START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 2 minutes
++------ END KW: BuiltIn.Sleep (120031)
++------ START KW: ${NrOfFiles} = PCDetectorKeywords.Generated CecoFiles For Channel [ ${channel} ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071528_01.ce
+${NrOfFiles} = 569
++------ END KW: ${NrOfFiles} = PCDetectorKeywords.Generated CecoFiles For Channel (1123)
+${NrOfCecoFiles} = 569
++----- END KW: ${NrOfCecoFiles} = shared_keywords.Generated Ceco Files For Channel 1 After 120 Seconds (121154)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ Generated Ceco Files For Channel | 1 | = | ${NrOfCecoFiles} | within | 300 sec ]
+Interpreting '300 sec' as fixed value
++------ START KW: PCDetectorKeywords.Generated CecoFiles For Channel [ 1 ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071528_01.ce
++------ END KW: PCDetectorKeywords.Generated CecoFiles For Channel (1248)
+'Generated Ceco Files For Channel 1' is '569'
+Interpreting '${NrOfCecoFiles}' as fixed value '569'
+Evaluating 'Generated Ceco Files For Channel 1 [569]' = '${NrOfCecoFiles} [569]'
++------ START KW: CheckOperator.= [ 569 | 569 ]
+Comparing evaluated keyword values
++------ END KW: CheckOperator.= (15)
+Requirement check on 'Generated Ceco Files For Channel 1 [569] = ${NrOfCecoFiles} [569]' after 1 seconds
+Generated CecoFiles For Channel, 1
+        =, 569, 569
++----- END KW: RobotChecks.Check That (1294)
+------------------------------------------------------------------------------
++---- END TEST: Disable VFP CECO Feature When AFP CECO is NOT Available Channel 1 (127392)
+------------------------------------------------------------------------------
++---- START TEST: Enable VFP CECO Feature When AFP CECO is NOT Available Channel 1 [ ]
+------------------------------------------------------------------------------
++----- START KW: ${region} = shared_keywords.Region For Channel 1 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (31)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3087)
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 1 (3134)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is vfp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Vfp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Vfp Disabled (31)
+'is vfp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is vfp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Precondition check on 'is vfp disabled ${region} [True] = True'
+Is Vfp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is afp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Afp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Afp Disabled (31)
+'is afp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is afp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (15)
+Precondition check on 'is afp disabled ${region} [True] = True'
+Is Afp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Enable Vfp Ceco [ ${region} ]
+Warning pop-up Window found
++----- END KW: ChannelFeatureRegion.Enable Vfp Ceco (1592)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is vfp enabled | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelFeatureRegion.Is Vfp Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Vfp Enabled (31)
+'is vfp enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is vfp enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Requirement check on 'is vfp enabled ${region} [True] = True' after 0 seconds
+Is Vfp Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ Generated Ceco Files For Channel | 1 | > | ${NrOfCecoFiles} | within | 300 sec ]
+Interpreting '300 sec' as fixed value
++------ START KW: PCDetectorKeywords.Generated CecoFiles For Channel [ 1 ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071528_01.ce
++------ END KW: PCDetectorKeywords.Generated CecoFiles For Channel (999)
+'Generated Ceco Files For Channel 1' is '569'
+Generated CecoFiles For Channel, 1
+Non-existing variable '${NrOfCecoFiles}'.
+Saving screenshot Enable and Disable Features-Enable VFP CECO Feature When AFP CECO is NOT Available Channel 1-generated cecofiles for channel_20160907-17h31m56.903.png
+</td></tr><tr><td colspan="3"><a href="Enable and Disable Features-Enable VFP CECO Feature When AFP CECO is NOT Available Channel 1-generated cecofiles for channel_20160907-17h31m56.903.png"><img src="Enable and Disable Features-Enable VFP CECO Feature When AFP CECO is NOT Available Channel 1-generated cecofiles for channel_20160907-17h31m56.903.png" width="800px"></a>
++----- END KW: RobotChecks.Check That (1045)
+------------------------------------------------------------------------------
++---- END TEST: Enable VFP CECO Feature When AFP CECO is NOT Available Channel 1 (6285)
+------------------------------------------------------------------------------
++---- START TEST: Disable Thumbnail Capturing Feature Channel 1 [ ]
+------------------------------------------------------------------------------
++----- START KW: ${region} = shared_keywords.Region For Channel 1 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (47)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3111)
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 1 (3158)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is thumbnail enabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Thumbnail Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Thumbnail Enabled (31)
+'is thumbnail enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is thumbnail enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is thumbnail enabled ${region} [True] = True'
+Is Thumbnail Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (78)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Disable Thumbnail Capturing [ ${region} ]
+Warning pop-up Window found
++----- END KW: ChannelFeatureRegion.Disable Thumbnail Capturing (1591)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is thumbnail disabled | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelFeatureRegion.Is Thumbnail Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Thumbnail Disabled (31)
+'is thumbnail disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is thumbnail disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Requirement check on 'is thumbnail disabled ${region} [True] = True' after 0 seconds
+Is Thumbnail Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (78)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${NrOfThumbnails} = shared_keywords.Generated Thumbnails For Channel 1 After 2 Seconds [ ]
++------ START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 2 seconds
++------ END KW: BuiltIn.Sleep (2030)
++------ START KW: ${NrOfFiles} = PCDetectorKeywords.Generated Thumbnails For Channel [ ${channel} ]
+${NrOfFiles} = 7319
++------ END KW: ${NrOfFiles} = PCDetectorKeywords.Generated Thumbnails For Channel (530)
+${NrOfThumbnails} = 7319
++----- END KW: ${NrOfThumbnails} = shared_keywords.Generated Thumbnails For Channel 1 After 2 Seconds (2560)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ Generated Thumbnails For Channel 1 After 300 Seconds | = | ${NrOfThumbnails} ]
++------ START KW: shared_keywords.Generated Thumbnails For Channel 1 After 300 Seconds [ ]
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 5 minutes
++------- END KW: BuiltIn.Sleep (300032)
++------- START KW: ${NrOfFiles} = PCDetectorKeywords.Generated Thumbnails For Channel [ ${channel} ]
+${NrOfFiles} = 7319
++------- END KW: ${NrOfFiles} = PCDetectorKeywords.Generated Thumbnails For Channel (546)
++------ END KW: shared_keywords.Generated Thumbnails For Channel 1 After 300 Seconds (300608)
+'Generated Thumbnails For Channel 1 After 300 Seconds' is '7319'
+Interpreting '${NrOfThumbnails}' as fixed value '7319'
+Evaluating 'Generated Thumbnails For Channel 1 After 300 Seconds [7319]' = '${NrOfThumbnails} [7319]'
++------ START KW: CheckOperator.= [ 7319 | 7319 ]
+Comparing evaluated keyword values
++------ END KW: CheckOperator.= (16)
+Requirement check on 'Generated Thumbnails For Channel 1 After 300 Seconds [7319] = ${NrOfThumbnails} [7319]'
+Generated Thumbnails For Channel 1 After 300 Seconds
+        =, 7319, 7319
++----- END KW: RobotChecks.Check That (300624)
+------------------------------------------------------------------------------
++---- END TEST: Disable Thumbnail Capturing Feature Channel 1 (308120)
+------------------------------------------------------------------------------
++---- START TEST: Enable Thumbnail Capturing Feature Channel 1 [ ]
+------------------------------------------------------------------------------
++----- START KW: ${region} = shared_keywords.Region For Channel 1 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (31)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3071)
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 1 (3134)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is thumbnail disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Thumbnail Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Thumbnail Disabled (31)
+'is thumbnail disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is thumbnail disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (15)
+Precondition check on 'is thumbnail disabled ${region} [True] = True'
+Is Thumbnail Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Enable Thumbnail Capturing [ ${region} ]
+Warning pop-up Window found
++----- END KW: ChannelFeatureRegion.Enable Thumbnail Capturing (1592)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is thumbnail enabled | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelFeatureRegion.Is Thumbnail Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Thumbnail Enabled (31)
+'is thumbnail enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is thumbnail enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Requirement check on 'is thumbnail enabled ${region} [True] = True' after 0 seconds
+Is Thumbnail Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (78)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${NrOfThumbnails} = shared_keywords.Generated Thumbnails For Channel 1 After 2 Seconds [ ]
++------ START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 2 seconds
++------ END KW: BuiltIn.Sleep (2045)
++------ START KW: ${NrOfFiles} = PCDetectorKeywords.Generated Thumbnails For Channel [ ${channel} ]
+${NrOfFiles} = 7320
++------ END KW: ${NrOfFiles} = PCDetectorKeywords.Generated Thumbnails For Channel (515)
+${NrOfThumbnails} = 7320
++----- END KW: ${NrOfThumbnails} = shared_keywords.Generated Thumbnails For Channel 1 After 2 Seconds (2575)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ Generated Thumbnails For Channel 1 After 300 Seconds | > | ${NrOfThumbnails} ]
++------ START KW: shared_keywords.Generated Thumbnails For Channel 1 After 300 Seconds [ ]
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 5 minutes
++------- END KW: BuiltIn.Sleep (300046)
++------- START KW: ${NrOfFiles} = PCDetectorKeywords.Generated Thumbnails For Channel [ ${channel} ]
+${NrOfFiles} = 7325
++------- END KW: ${NrOfFiles} = PCDetectorKeywords.Generated Thumbnails For Channel (702)
++------ END KW: shared_keywords.Generated Thumbnails For Channel 1 After 300 Seconds (300764)
+'Generated Thumbnails For Channel 1 After 300 Seconds' is '7325'
+Interpreting '${NrOfThumbnails}' as fixed value '7320'
+Evaluating 'Generated Thumbnails For Channel 1 After 300 Seconds [7325]' > '${NrOfThumbnails} [7320]'
++------ START KW: CheckOperator.> [ 7325 | 7320 ]
+Comparing evaluated keyword values
++------ END KW: CheckOperator.> (15)
+Requirement check on 'Generated Thumbnails For Channel 1 After 300 Seconds [7325] > ${NrOfThumbnails} [7320]'
+Generated Thumbnails For Channel 1 After 300 Seconds
+        >, 7325, 7320
++----- END KW: RobotChecks.Check That (300795)
+------------------------------------------------------------------------------
++---- END TEST: Enable Thumbnail Capturing Feature Channel 1 (308236)
+------------------------------------------------------------------------------
++---- START TEST: Enable VFP Streaming Feature Channel 1 [ ]
+------------------------------------------------------------------------------
++----- START KW: ${region} = shared_keywords.Region For Channel 1 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (47)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3071)
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 1 (3118)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is rt vfp enabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Vfp Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Vfp Enabled (31)
+'is rt vfp enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt vfp enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (15)
+Precondition check on 'is rt vfp enabled ${region} [True] = True'
+Is Rt Vfp Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Disable Vfp Streaming [ ${region} ]
+Warning pop-up Window found
++----- END KW: ChannelFeatureRegion.Disable Vfp Streaming (1592)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is rt vfp disabled | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelFeatureRegion.Is Rt Vfp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Vfp Disabled (31)
+'is rt vfp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt vfp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Requirement check on 'is rt vfp disabled ${region} [True] = True' after 0 seconds
+Is Rt Vfp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (78)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Enable Vfp Streaming [ ${region} ]
+Warning pop-up Window found
++----- END KW: ChannelFeatureRegion.Enable Vfp Streaming (1575)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is rt vfp enabled | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelFeatureRegion.Is Rt Vfp Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Vfp Enabled (15)
+'is rt vfp enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt vfp enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Requirement check on 'is rt vfp enabled ${region} [True] = True' after 0 seconds
+Is Rt Vfp Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (63)
+------------------------------------------------------------------------------
++---- END TEST: Enable VFP Streaming Feature Channel 1 (6488)
+------------------------------------------------------------------------------
++---- START TEST: Enable VFP CECO Feature Channel 1 for matrox [ ]
+------------------------------------------------------------------------------
++----- START KW: ${region} = shared_keywords.Region For Channel 1 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (47)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3087)
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 1 (3134)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is vfp enabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Vfp Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Vfp Enabled (31)
+'is vfp enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is vfp enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Precondition check on 'is vfp enabled ${region} [True] = True'
+Is Vfp Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Disable Vfp Ceco [ ${region} ]
+Warning pop-up Window found
++----- END KW: ChannelFeatureRegion.Disable Vfp Ceco (1575)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is vfp disabled | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelFeatureRegion.Is Vfp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Vfp Disabled (31)
+'is vfp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is vfp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Requirement check on 'is vfp disabled ${region} [True] = True' after 0 seconds
+Is Vfp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${NrOfCecoFiles} = shared_keywords.Generated Ceco Files For Channel 1 After 120 Seconds [ ]
++------ START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 2 minutes
++------ END KW: BuiltIn.Sleep (120011)
++------ START KW: ${NrOfFiles} = PCDetectorKeywords.Generated CecoFiles For Channel [ ${channel} ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071542_01.ce
+${NrOfFiles} = 576
++------ END KW: ${NrOfFiles} = PCDetectorKeywords.Generated CecoFiles For Channel (1045)
+${NrOfCecoFiles} = 576
++----- END KW: ${NrOfCecoFiles} = shared_keywords.Generated Ceco Files For Channel 1 After 120 Seconds (121087)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ Generated Ceco Files For Channel | 1 | = | ${NrOfCecoFiles} | within | 300 sec ]
+Interpreting '300 sec' as fixed value
++------ START KW: PCDetectorKeywords.Generated CecoFiles For Channel [ 1 ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071542_01.ce
++------ END KW: PCDetectorKeywords.Generated CecoFiles For Channel (1014)
+'Generated Ceco Files For Channel 1' is '576'
+Interpreting '${NrOfCecoFiles}' as fixed value '576'
+Evaluating 'Generated Ceco Files For Channel 1 [576]' = '${NrOfCecoFiles} [576]'
++------ START KW: CheckOperator.= [ 576 | 576 ]
+Comparing evaluated keyword values
++------ END KW: CheckOperator.= (16)
+Requirement check on 'Generated Ceco Files For Channel 1 [576] = ${NrOfCecoFiles} [576]' after 1 seconds
+Generated CecoFiles For Channel, 1
+        =, 576, 576
++----- END KW: RobotChecks.Check That (1061)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${NrOfCecoFiles} = PCDetectorKeywords.Generated CecoFiles For Channel [ 1 ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071542_01.ce
+${NrOfCecoFiles} = 576
++----- END KW: ${NrOfCecoFiles} = PCDetectorKeywords.Generated CecoFiles For Channel (1216)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Enable Vfp Ceco [ ${region} ]
+Warning pop-up Window found
++----- END KW: ChannelFeatureRegion.Enable Vfp Ceco (1607)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is vfp enabled | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelFeatureRegion.Is Vfp Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Vfp Enabled (31)
+'is vfp enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is vfp enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Requirement check on 'is vfp enabled ${region} [True] = True' after 0 seconds
+Is Vfp Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ Generated Ceco Files For Channel | 1 | > | ${NrOfCecoFiles} | within | 300 sec ]
+Interpreting '300 sec' as fixed value
++------ START KW: PCDetectorKeywords.Generated CecoFiles For Channel [ 1 ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071542_01.ce
++------ END KW: PCDetectorKeywords.Generated CecoFiles For Channel (1029)
+'Generated Ceco Files For Channel 1' is '576'
+Interpreting '${NrOfCecoFiles}' as fixed value '576'
+Evaluating 'Generated Ceco Files For Channel 1 [576]' > '${NrOfCecoFiles} [576]'
++------ START KW: CheckOperator.> [ 576 | 576 ]
+Comparing evaluated keyword values
++------ END KW: CheckOperator.> (16)
++------ START KW: PCDetectorKeywords.Generated CecoFiles For Channel [ 1 ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071542_01.ce
++------ END KW: PCDetectorKeywords.Generated CecoFiles For Channel (982)
+'Generated Ceco Files For Channel 1' is '576'
+Interpreting '${NrOfCecoFiles}' as fixed value '576'
+Evaluating 'Generated Ceco Files For Channel 1 [576]' > '${NrOfCecoFiles} [576]'
++------ START KW: CheckOperator.> [ 576 | 576 ]
+Comparing evaluated keyword values
++------ END KW: CheckOperator.> (0)
++------ START KW: PCDetectorKeywords.Generated CecoFiles For Channel [ 1 ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071542_01.ce
++------ END KW: PCDetectorKeywords.Generated CecoFiles For Channel (1092)
+'Generated Ceco Files For Channel 1' is '576'
+Interpreting '${NrOfCecoFiles}' as fixed value '576'
+Evaluating 'Generated Ceco Files For Channel 1 [576]' > '${NrOfCecoFiles} [576]'
++------ START KW: CheckOperator.> [ 576 | 576 ]
+Comparing evaluated keyword values
++------ END KW: CheckOperator.> (0)
++------ START KW: PCDetectorKeywords.Generated CecoFiles For Channel [ 1 ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071542_01.ce
++------ END KW: PCDetectorKeywords.Generated CecoFiles For Channel (998)
+'Generated Ceco Files For Channel 1' is '576'
+Interpreting '${NrOfCecoFiles}' as fixed value '576'
+Evaluating 'Generated Ceco Files For Channel 1 [576]' > '${NrOfCecoFiles} [576]'
++------ START KW: CheckOperator.> [ 576 | 576 ]
+Comparing evaluated keyword values
++------ END KW: CheckOperator.> (16)
++------ START KW: PCDetectorKeywords.Generated CecoFiles For Channel [ 1 ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071542_01.ce
++------ END KW: PCDetectorKeywords.Generated CecoFiles For Channel (983)
+'Generated Ceco Files For Channel 1' is '576'
+Interpreting '${NrOfCecoFiles}' as fixed value '576'
+Evaluating 'Generated Ceco Files For Channel 1 [576]' > '${NrOfCecoFiles} [576]'
++------ START KW: CheckOperator.> [ 576 | 576 ]
+Comparing evaluated keyword values
++------ END KW: CheckOperator.> (15)
++------ START KW: PCDetectorKeywords.Generated CecoFiles For Channel [ 1 ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071542_01.ce
++------ END KW: PCDetectorKeywords.Generated CecoFiles For Channel (1029)
+'Generated Ceco Files For Channel 1' is '576'
+Interpreting '${NrOfCecoFiles}' as fixed value '576'
+Evaluating 'Generated Ceco Files For Channel 1 [576]' > '${NrOfCecoFiles} [576]'
++------ START KW: CheckOperator.> [ 576 | 576 ]
+Comparing evaluated keyword values
++------ END KW: CheckOperator.> (16)
++------ START KW: PCDetectorKeywords.Generated CecoFiles For Channel [ 1 ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071542_01.ce
++------ END KW: PCDetectorKeywords.Generated CecoFiles For Channel (1186)
+'Generated Ceco Files For Channel 1' is '576'
+Interpreting '${NrOfCecoFiles}' as fixed value '576'
+Evaluating 'Generated Ceco Files For Channel 1 [576]' > '${NrOfCecoFiles} [576]'
++------ START KW: CheckOperator.> [ 576 | 576 ]
+Comparing evaluated keyword values
++------ END KW: CheckOperator.> (16)
++------ START KW: PCDetectorKeywords.Generated CecoFiles For Channel [ 1 ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071542_01.ce
++------ END KW: PCDetectorKeywords.Generated CecoFiles For Channel (1030)
+'Generated Ceco Files For Channel 1' is '577'
+Interpreting '${NrOfCecoFiles}' as fixed value '576'
+Evaluating 'Generated Ceco Files For Channel 1 [577]' > '${NrOfCecoFiles} [576]'
++------ START KW: CheckOperator.> [ 577 | 576 ]
+Comparing evaluated keyword values
++------ END KW: CheckOperator.> (0)
+Requirement check on 'Generated Ceco Files For Channel 1 [577] > ${NrOfCecoFiles} [576]' after 91 seconds
+Generated CecoFiles For Channel, 1
+        >, 576, 576
+        Generated CecoFiles For Channel, 1
+        >, 576, 576
+        Generated CecoFiles For Channel, 1
+        >, 576, 576
+        Generated CecoFiles For Channel, 1
+        >, 576, 576
+        Generated CecoFiles For Channel, 1
+        >, 576, 576
+        Generated CecoFiles For Channel, 1
+        >, 576, 576
+        Generated CecoFiles For Channel, 1
+        >, 576, 576
+        Generated CecoFiles For Channel, 1
+        >, 577, 576
++----- END KW: RobotChecks.Check That (91848)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${CecoFile} = PCDetectorKeywords.Latest Ceco File For Channel [ 1 ]
+${CecoFile} = F:\civolution\Data\WcD07681609071544_01.ce
++----- END KW: ${CecoFile} = PCDetectorKeywords.Latest Ceco File For Channel (499)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${Consistency}, ${VFP_blocks}, ${AFP_blocks} = bmcecocheck.Consistency Of Ceco File [ ${CecoFile} | ${Verbose} ]
+${Consistency} = 0
+${VFP_blocks} = 18
+${AFP_blocks} = 0
++----- END KW: ${Consistency}, ${VFP_blocks}, ${AFP_blocks} = bmcecocheck.Consistency Of Ceco File (94)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ ${Consistency} | = | ${OK} ]
+Interpreting '${Consistency}' as fixed value '0'
+Interpreting '${OK}' as fixed value '0'
+Evaluating '${Consistency} [0]' = '${OK} [0]'
++------ START KW: CheckOperator.= [ 0 | 0 ]
+Comparing as integer values
++------ END KW: CheckOperator.= (16)
+Requirement check on '${Consistency} [0] = ${OK} [0]'
+=, 0, 0
++----- END KW: RobotChecks.Check That (31)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ ${VFP_blocks} | > | 0 ]
+Interpreting '${VFP_blocks}' as fixed value '18'
+Interpreting '0' as fixed value
+Evaluating '${VFP_blocks} [18]' > '0'
++------ START KW: CheckOperator.> [ 18 | 0 ]
+Comparing as integer values
++------ END KW: CheckOperator.> (0)
+Requirement check on '${VFP_blocks} [18] > 0'
+>, 18, 0
++----- END KW: RobotChecks.Check That (31)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ ${AFP_blocks} | = | 0 ]
+Interpreting '${AFP_blocks}' as fixed value '0'
+Interpreting '0' as fixed value
+Evaluating '${AFP_blocks} [0]' = '0'
++------ START KW: CheckOperator.= [ 0 | 0 ]
+Comparing as integer values
++------ END KW: CheckOperator.= (0)
+Requirement check on '${AFP_blocks} [0] = 0'
+=, 0, 0
++----- END KW: RobotChecks.Check That (16)
+------------------------------------------------------------------------------
++---- END TEST: Enable VFP CECO Feature Channel 1 for matrox (222434)
+------------------------------------------------------------------------------
++---- START TEST: Enable VFP Features Channel 1, License Does Not Support VFP Feature for matrox [ ]
+------------------------------------------------------------------------------
++----- START KW: shared_keywords.Replace License File [ ${License_without_VFP_RTVFP} ]
++------ START KW: shared_keywords.Stop PC Detector Application [ ]
++------- START KW: PCDetector.Exit Application [ yes ]
+[log] CLICK on L(17,29)@S(0)[0,0 1460x963]
+[log] CLICK on L(122,116)@S(0)[0,0 1460x963]
+[log] CLICK on L(781,525)@S(0)[0,0 1460x963]
++------- END KW: PCDetector.Exit Application (3557)
++------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15015)
++------ END KW: shared_keywords.Stop PC Detector Application (18588)
++------ START KW: PCDetectorKeywords.Copy License File [ ${filename} ]
+SourceFile:  C:\PCDetector_Testing\Testing\Resources\LicenseFiles\TeletraxCVBSSVIDDetector_Without_VFP_RTVFP.lic
+DestinationFile:  F:\civolution\TeletraxCVBSSVIDDetector.lic
+FileExists value:  True
++------ END KW: PCDetectorKeywords.Copy License File (0)
++------ START KW: shared_keywords.Start PC Detector Application After 15 Seconds [ ]
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15007)
++------- START KW: PCDetectorKeywords.Kill PCDetector Process [ ]
++------- END KW: PCDetectorKeywords.Kill PCDetector Process (15)
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15030)
++------- START KW: shared_keywords.Start PC Detector Application [ ]
++-------- START KW: PCDetector.Start Application [ ]
+License warning not found, no need to make it disappear
++-------- END KW: PCDetector.Start Application (33743)
++-------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++-------- END KW: BuiltIn.Sleep (15031)
++-------- START KW: PCDetector.Maximize Application Window [ ]
+[log] CLICK on L(192,99)@S(0)[0,0 1460x963]
+[log] CLICK on L(1059,100)@S(0)[0,0 1460x963]
++-------- END KW: PCDetector.Maximize Application Window (1950)
++------- END KW: shared_keywords.Start PC Detector Application (50724)
++------ END KW: shared_keywords.Start PC Detector Application After 15 Seconds (80792)
++----- END KW: shared_keywords.Replace License File (99396)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${region} = shared_keywords.Region For Channel 1 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (46)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3071)
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 1 (3117)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is watermarking enabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Watermarking Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Watermarking Enabled (31)
+'is watermarking enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is watermarking enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (15)
+Precondition check on 'is watermarking enabled ${region} [True] = True'
+Is Watermarking Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is vfp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Vfp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Vfp Disabled (31)
+'is vfp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is vfp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is vfp disabled ${region} [True] = True'
+Is Vfp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is rt vfp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Vfp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Vfp Disabled (16)
+'is rt vfp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt vfp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (15)
+Precondition check on 'is rt vfp disabled ${region} [True] = True'
+Is Rt Vfp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is afp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Afp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Afp Disabled (15)
+'is afp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is afp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is afp disabled ${region} [True] = True'
+Is Afp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is rt afp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Afp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Afp Disabled (16)
+'is rt afp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt afp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is rt afp disabled ${region} [True] = True'
+Is Rt Afp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (46)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is thumbnail enabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Thumbnail Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Thumbnail Enabled (31)
+'is thumbnail enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is thumbnail enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is thumbnail enabled ${region} [True] = True'
+Is Thumbnail Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is cc disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Cc Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Cc Disabled (31)
+'is cc disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is cc disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is cc disabled ${region} [True] = True'
+Is Cc Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (78)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is rt cc disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Cc Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Cc Disabled (47)
+'is rt cc disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt cc disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is rt cc disabled ${region} [True] = True'
+Is Rt Cc Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (94)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Enable Vfp Ceco [ ${region} ]
+Exception in Warning popup-Window: Not Found
+Warning pop-up Window is not displayed
++----- END KW: ChannelFeatureRegion.Enable Vfp Ceco (4524)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Enable Vfp Streaming [ ${region} ]
+Exception in Warning popup-Window: Not Found
+Warning pop-up Window is not displayed
++----- END KW: ChannelFeatureRegion.Enable Vfp Streaming (3916)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${NrOfCecoFiles} = PCDetectorKeywords.Generated CecoFiles For Channel [ 1 ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071546_01.ce
+${NrOfCecoFiles} = 578
++----- END KW: ${NrOfCecoFiles} = PCDetectorKeywords.Generated CecoFiles For Channel (1154)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is vfp disabled | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelFeatureRegion.Is Vfp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Vfp Disabled (31)
+'is vfp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is vfp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Requirement check on 'is vfp disabled ${region} [True] = True' after 0 seconds
+Is Vfp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is rt vfp enabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Vfp Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Vfp Enabled (31)
+'is rt vfp enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt vfp enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Requirement check on 'is rt vfp enabled ${region} [True] = True'
+Is Rt Vfp Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ Generated Ceco Files For Channel | 1 | = | ${NrOfCecoFiles} | within | 300 sec ]
+Interpreting '300 sec' as fixed value
++------ START KW: PCDetectorKeywords.Generated CecoFiles For Channel [ 1 ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071546_01.ce
++------ END KW: PCDetectorKeywords.Generated CecoFiles For Channel (1139)
+'Generated Ceco Files For Channel 1' is '578'
+Interpreting '${NrOfCecoFiles}' as fixed value '578'
+Evaluating 'Generated Ceco Files For Channel 1 [578]' = '${NrOfCecoFiles} [578]'
++------ START KW: CheckOperator.= [ 578 | 578 ]
+Comparing evaluated keyword values
++------ END KW: CheckOperator.= (16)
+Requirement check on 'Generated Ceco Files For Channel 1 [578] = ${NrOfCecoFiles} [578]' after 1 seconds
+Generated CecoFiles For Channel, 1
+        =, 578, 578
++----- END KW: RobotChecks.Check That (1186)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: shared_keywords.Replace License File [ ${License_All_Features_Active} ]
++------ START KW: shared_keywords.Stop PC Detector Application [ ]
++------- START KW: PCDetector.Exit Application [ yes ]
+[log] CLICK on L(17,29)@S(0)[0,0 1460x963]
+[log] CLICK on L(122,116)@S(0)[0,0 1460x963]
+[log] CLICK on L(781,525)@S(0)[0,0 1460x963]
++------- END KW: PCDetector.Exit Application (2340)
++------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15016)
++------ END KW: shared_keywords.Stop PC Detector Application (17387)
++------ START KW: PCDetectorKeywords.Copy License File [ ${filename} ]
+SourceFile:  C:\PCDetector_Testing\Testing\Resources\LicenseFiles\TeletraxCVBSSVIDDetector_All_Features_Activated.lic
+DestinationFile:  F:\civolution\TeletraxCVBSSVIDDetector.lic
+FileExists value:  True
++------ END KW: PCDetectorKeywords.Copy License File (0)
++------ START KW: shared_keywords.Start PC Detector Application After 15 Seconds [ ]
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15007)
++------- START KW: PCDetectorKeywords.Kill PCDetector Process [ ]
++------- END KW: PCDetectorKeywords.Kill PCDetector Process (16)
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15007)
++------- START KW: shared_keywords.Start PC Detector Application [ ]
++-------- START KW: PCDetector.Start Application [ ]
+License warning not found, no need to make it disappear
++-------- END KW: PCDetector.Start Application (33790)
++-------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++-------- END KW: BuiltIn.Sleep (15031)
++-------- START KW: PCDetector.Maximize Application Window [ ]
+[log] CLICK on L(236,143)@S(0)[0,0 1460x963]
+[log] CLICK on L(1103,144)@S(0)[0,0 1460x963]
++-------- END KW: PCDetector.Maximize Application Window (1935)
++------- END KW: shared_keywords.Start PC Detector Application (50756)
++------ END KW: shared_keywords.Start PC Detector Application After 15 Seconds (80801)
++----- END KW: shared_keywords.Replace License File (98203)
+------------------------------------------------------------------------------
++---- END TEST: Enable VFP Features Channel 1, License Does Not Support VFP Feature for matrox (212214)
+------------------------------------------------------------------------------
++---- START TEST: Enable VFP Streaming Channel 1, Configuration Does Not Support VFP Streaming for matrox [ ]
+------------------------------------------------------------------------------
++----- START KW: shared_keywords.Replace Configuration File [ ${Configuration_No_VFP_Streaming_Active} ]
++------ START KW: shared_keywords.Stop PC Detector Application [ ]
++------- START KW: PCDetector.Exit Application [ yes ]
+[log] CLICK on L(17,29)@S(0)[0,0 1460x963]
+[log] CLICK on L(122,116)@S(0)[0,0 1460x963]
+[log] CLICK on L(781,525)@S(0)[0,0 1460x963]
++------- END KW: PCDetector.Exit Application (2356)
++------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15007)
++------ END KW: shared_keywords.Stop PC Detector Application (17394)
++------ START KW: PCDetectorKeywords.Copy Configuration File [ ${filename} ]
+SourceFile:  C:\PCDetector_Testing\Testing\Resources\ConfigurationFiles\TTX_WatercastProp_CCStreaming1234.cfg
+DestinationFile:  F:\civolution\Cfg\TTX_WatercastProp.cfg
+FileExists value:  True
++------ END KW: PCDetectorKeywords.Copy Configuration File (0)
++------ START KW: shared_keywords.Start PC Detector Application After 15 Seconds [ ]
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15030)
++------- START KW: PCDetectorKeywords.Kill PCDetector Process [ ]
++------- END KW: PCDetectorKeywords.Kill PCDetector Process (0)
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15031)
++------- START KW: shared_keywords.Start PC Detector Application [ ]
++-------- START KW: PCDetector.Start Application [ ]
+License warning not found, no need to make it disappear
++-------- END KW: PCDetector.Start Application (33821)
++-------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++-------- END KW: BuiltIn.Sleep (15032)
++-------- START KW: PCDetector.Maximize Application Window [ ]
+[log] CLICK on L(280,187)@S(0)[0,0 1460x963]
+[log] CLICK on L(1147,188)@S(0)[0,0 1460x963]
++-------- END KW: PCDetector.Maximize Application Window (1950)
++------- END KW: shared_keywords.Start PC Detector Application (50803)
++------ END KW: shared_keywords.Start PC Detector Application After 15 Seconds (80894)
++----- END KW: shared_keywords.Replace Configuration File (98303)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${region} = shared_keywords.Region For Channel 1 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (47)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3086)
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 1 (3149)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is watermarking enabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Watermarking Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Watermarking Enabled (31)
+'is watermarking enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is watermarking enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Precondition check on 'is watermarking enabled ${region} [True] = True'
+Is Watermarking Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is vfp enabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Vfp Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Vfp Enabled (31)
+'is vfp enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is vfp enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Precondition check on 'is vfp enabled ${region} [True] = True'
+Is Vfp Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (78)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is rt vfp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Vfp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Vfp Disabled (31)
+'is rt vfp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt vfp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is rt vfp disabled ${region} [True] = True'
+Is Rt Vfp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (93)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is afp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Afp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Afp Disabled (32)
+'is afp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is afp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (15)
+Precondition check on 'is afp disabled ${region} [True] = True'
+Is Afp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (78)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is rt afp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Afp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Afp Disabled (47)
+'is rt afp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt afp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (15)
+Precondition check on 'is rt afp disabled ${region} [True] = True'
+Is Rt Afp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (78)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is thumbnail enabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Thumbnail Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Thumbnail Enabled (32)
+'is thumbnail enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is thumbnail enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is thumbnail enabled ${region} [True] = True'
+Is Thumbnail Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (78)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is cc disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Cc Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Cc Disabled (47)
+'is cc disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is cc disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is cc disabled ${region} [True] = True'
+Is Cc Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (93)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is rt cc disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Cc Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Cc Disabled (47)
+'is rt cc disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt cc disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is rt cc disabled ${region} [True] = True'
+Is Rt Cc Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (78)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Enable Vfp Streaming [ ${region} ]
+Exception in Warning popup-Window: Not Found
+Warning pop-up Window is not displayed
++----- END KW: ChannelFeatureRegion.Enable Vfp Streaming (3978)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is rt vfp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Vfp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Vfp Disabled (31)
+'is rt vfp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt vfp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Requirement check on 'is rt vfp disabled ${region} [True] = True'
+Is Rt Vfp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: shared_keywords.Replace Configuration File [ ${Configuration_All_Streaming_Active} ]
++------ START KW: shared_keywords.Stop PC Detector Application [ ]
++------- START KW: PCDetector.Exit Application [ yes ]
+[log] CLICK on L(17,29)@S(0)[0,0 1460x963]
+[log] CLICK on L(122,116)@S(0)[0,0 1460x963]
+[log] CLICK on L(781,525)@S(0)[0,0 1460x963]
++------- END KW: PCDetector.Exit Application (2356)
++------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15023)
++------ END KW: shared_keywords.Stop PC Detector Application (17379)
++------ START KW: PCDetectorKeywords.Copy Configuration File [ ${filename} ]
+SourceFile:  C:\PCDetector_Testing\Testing\Resources\ConfigurationFiles\TTX_WatercastProp_AllStreaming1234.cfg
+DestinationFile:  F:\civolution\Cfg\TTX_WatercastProp.cfg
+FileExists value:  True
++------ END KW: PCDetectorKeywords.Copy Configuration File (0)
++------ START KW: shared_keywords.Start PC Detector Application After 15 Seconds [ ]
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15030)
++------- START KW: PCDetectorKeywords.Kill PCDetector Process [ ]
++------- END KW: PCDetectorKeywords.Kill PCDetector Process (0)
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15008)
++------- START KW: shared_keywords.Start PC Detector Application [ ]
++-------- START KW: PCDetector.Start Application [ ]
+License warning not found, no need to make it disappear
++-------- END KW: PCDetector.Start Application (33789)
++-------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++-------- END KW: BuiltIn.Sleep (15032)
++-------- START KW: PCDetector.Maximize Application Window [ ]
+[log] CLICK on L(324,231)@S(0)[0,0 1460x963]
+[log] CLICK on L(1191,232)@S(0)[0,0 1460x963]
++-------- END KW: PCDetector.Maximize Application Window (1950)
++------- END KW: shared_keywords.Start PC Detector Application (50771)
++------ END KW: shared_keywords.Start PC Detector Application After 15 Seconds (80824)
++----- END KW: shared_keywords.Replace Configuration File (98248)
+------------------------------------------------------------------------------
++---- END TEST: Enable VFP Streaming Channel 1, Configuration Does Not Support VFP Streaming for matrox (204412)
+------------------------------------------------------------------------------
++---- START TEST: Verify AFP CECO Feature Channel 1 for matrox [ ]
+------------------------------------------------------------------------------
++----- START KW: ${region} = shared_keywords.Region For Channel 1 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (47)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3071)
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 1 (3118)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is afp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Afp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Afp Disabled (31)
+'is afp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is afp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is afp disabled ${region} [True] = True'
+Is Afp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (78)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is rt afp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Afp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Afp Disabled (15)
+'is rt afp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt afp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Precondition check on 'is rt afp disabled ${region} [True] = True'
+Is Rt Afp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${NrOfCecoFiles} = shared_keywords.Generated Ceco Files For Channel 1 After 120 Seconds [ ]
++------ START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 2 minutes
++------ END KW: BuiltIn.Sleep (120011)
++------ START KW: ${NrOfFiles} = PCDetectorKeywords.Generated CecoFiles For Channel [ ${channel} ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071552_01.ce
+${NrOfFiles} = 581
++------ END KW: ${NrOfFiles} = PCDetectorKeywords.Generated CecoFiles For Channel (1045)
+${NrOfCecoFiles} = 581
++----- END KW: ${NrOfCecoFiles} = shared_keywords.Generated Ceco Files For Channel 1 After 120 Seconds (121071)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Disable Vfp Ceco [ ${region} ]
+Warning pop-up Window found
++----- END KW: ChannelFeatureRegion.Disable Vfp Ceco (2948)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ Generated Ceco Files For Channel | 1 | = | ${NrOfCecoFiles} | within | 300 sec ]
+Interpreting '300 sec' as fixed value
++------ START KW: PCDetectorKeywords.Generated CecoFiles For Channel [ 1 ]
+Latest Ceco file:  F:\civolution\Data\WcD07681609071552_01.ce
++------ END KW: PCDetectorKeywords.Generated CecoFiles For Channel (1139)
+'Generated Ceco Files For Channel 1' is '581'
+Interpreting '${NrOfCecoFiles}' as fixed value '581'
+Evaluating 'Generated Ceco Files For Channel 1 [581]' = '${NrOfCecoFiles} [581]'
++------ START KW: CheckOperator.= [ 581 | 581 ]
+Comparing evaluated keyword values
++------ END KW: CheckOperator.= (16)
+Requirement check on 'Generated Ceco Files For Channel 1 [581] = ${NrOfCecoFiles} [581]' after 1 seconds
+Generated CecoFiles For Channel, 1
+        =, 581, 581
++----- END KW: RobotChecks.Check That (1170)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${CecoFile} = PCDetectorKeywords.Latest Ceco File For Channel [ 1 ]
+${CecoFile} = F:\civolution\Data\WcD07681609071552_01.ce
++----- END KW: ${CecoFile} = PCDetectorKeywords.Latest Ceco File For Channel (546)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${Consistency}, ${VFP_blocks}, ${AFP_blocks} = bmcecocheck.Consistency Of Ceco File [ ${CecoFile} | ${Verbose} ]
+${Consistency} = 0
+${VFP_blocks} = 19
+${AFP_blocks} = 0
++----- END KW: ${Consistency}, ${VFP_blocks}, ${AFP_blocks} = bmcecocheck.Consistency Of Ceco File (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ ${Consistency} | = | ${OK} ]
+Interpreting '${Consistency}' as fixed value '0'
+Interpreting '${OK}' as fixed value '0'
+Evaluating '${Consistency} [0]' = '${OK} [0]'
++------ START KW: CheckOperator.= [ 0 | 0 ]
+Comparing as integer values
++------ END KW: CheckOperator.= (16)
+Requirement check on '${Consistency} [0] = ${OK} [0]'
+=, 0, 0
++----- END KW: RobotChecks.Check That (16)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ ${VFP_blocks} | = | 0 ]
+Interpreting '${VFP_blocks}' as fixed value '19'
+Interpreting '0' as fixed value
+Evaluating '${VFP_blocks} [19]' = '0'
++------ START KW: CheckOperator.= [ 19 | 0 ]
+Comparing as integer values
++------ END KW: CheckOperator.= (15)
+=, 19, 0
+CheckFailed: Requirement check on '${VFP_blocks} [19] = 0'
+Traceback (most recent call last):
+  File "C:\PCDetector_Testing\Testing\Robot\Keywords\Framework_extension\RobotChecks.py", line 80, in check_that
+    return RobotChecks.__execute_check("Requirement", *args)
+  File "C:\PCDetector_Testing\Testing\Robot\Keywords\Framework_extension\RobotChecks.py", line 219, in _RobotChecks__execute_check
+    raise CheckFailed(ReportString)
+Saving screenshot Enable and Disable Features-Verify AFP CECO Feature Channel 1 for matrox-=_20160907-17h55m08.363.png
+</td></tr><tr><td colspan="3"><a href="Enable and Disable Features-Verify AFP CECO Feature Channel 1 for matrox-=_20160907-17h55m08.363.png"><img src="Enable and Disable Features-Verify AFP CECO Feature Channel 1 for matrox-=_20160907-17h55m08.363.png" width="800px"></a>
++----- END KW: RobotChecks.Check That (31)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ ${AFP_blocks} | = | 0 ]
+Interpreting '${AFP_blocks}' as fixed value '0'
+Interpreting '0' as fixed value
+Evaluating '${AFP_blocks} [0]' = '0'
++------ START KW: CheckOperator.= [ 0 | 0 ]
+Comparing as integer values
++------ END KW: CheckOperator.= (15)
+Requirement check on '${AFP_blocks} [0] = 0'
+=, 0, 0
++----- END KW: RobotChecks.Check That (31)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Enable Vfp Ceco [ ${region} ]
+Warning pop-up Window found
++----- END KW: ChannelFeatureRegion.Enable Vfp Ceco (1592)
+------------------------------------------------------------------------------
++---- END TEST: Verify AFP CECO Feature Channel 1 for matrox (131117)
+------------------------------------------------------------------------------
++---- START TEST: Enable Thumbnail Capturing Feature Channel 1-Matrox, License Does Not Support Thumbnail Feature [ ]
+------------------------------------------------------------------------------
++----- START KW: shared_keywords.Replace License File [ ${License_without_Thumbnails} ]
++------ START KW: shared_keywords.Stop PC Detector Application [ ]
++------- START KW: PCDetector.Exit Application [ yes ]
+[log] CLICK on L(17,29)@S(0)[0,0 1460x963]
+[log] CLICK on L(122,116)@S(0)[0,0 1460x963]
+[log] CLICK on L(781,525)@S(0)[0,0 1460x963]
++------- END KW: PCDetector.Exit Application (3635)
++------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15015)
++------ END KW: shared_keywords.Stop PC Detector Application (18682)
++------ START KW: PCDetectorKeywords.Copy License File [ ${filename} ]
+SourceFile:  C:\PCDetector_Testing\Testing\Resources\LicenseFiles\TeletraxCVBSSVIDDetector_Without_Thumbnails.lic
+DestinationFile:  F:\civolution\TeletraxCVBSSVIDDetector.lic
+FileExists value:  True
++------ END KW: PCDetectorKeywords.Copy License File (0)
++------ START KW: shared_keywords.Start PC Detector Application After 15 Seconds [ ]
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15007)
++------- START KW: PCDetectorKeywords.Kill PCDetector Process [ ]
++------- END KW: PCDetectorKeywords.Kill PCDetector Process (15)
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15030)
++------- START KW: shared_keywords.Start PC Detector Application [ ]
++-------- START KW: PCDetector.Start Application [ ]
+License warning not found, no need to make it disappear
++-------- END KW: PCDetector.Start Application (33540)
++-------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++-------- END KW: BuiltIn.Sleep (15045)
++-------- START KW: PCDetector.Maximize Application Window [ ]
+[log] CLICK on L(148,55)@S(0)[0,0 1460x963]
+[log] CLICK on L(1015,56)@S(0)[0,0 1460x963]
++-------- END KW: PCDetector.Maximize Application Window (1934)
++------- END KW: shared_keywords.Start PC Detector Application (50519)
++------ END KW: shared_keywords.Start PC Detector Application After 15 Seconds (80587)
++----- END KW: shared_keywords.Replace License File (99269)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${region} = shared_keywords.Region For Channel 1 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (47)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3071)
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 1 (3118)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is watermarking enabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Watermarking Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Watermarking Enabled (31)
+'is watermarking enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is watermarking enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Precondition check on 'is watermarking enabled ${region} [True] = True'
+Is Watermarking Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is vfp enabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Vfp Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Vfp Enabled (16)
+'is vfp enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is vfp enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is vfp enabled ${region} [True] = True'
+Is Vfp Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is rt vfp enabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Vfp Enabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Vfp Enabled (15)
+'is rt vfp enabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt vfp enabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is rt vfp enabled ${region} [True] = True'
+Is Rt Vfp Enabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (47)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is afp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Afp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Afp Disabled (32)
+'is afp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is afp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is afp disabled ${region} [True] = True'
+Is Afp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is rt afp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Afp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Afp Disabled (31)
+'is rt afp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt afp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Precondition check on 'is rt afp disabled ${region} [True] = True'
+Is Rt Afp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is thumbnail disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Thumbnail Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Thumbnail Disabled (15)
+'is thumbnail disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is thumbnail disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is thumbnail disabled ${region} [True] = True'
+Is Thumbnail Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (47)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is cc disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Cc Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Cc Disabled (31)
+'is cc disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is cc disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (15)
+Precondition check on 'is cc disabled ${region} [True] = True'
+Is Cc Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is rt cc disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Cc Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Cc Disabled (16)
+'is rt cc disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt cc disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is rt cc disabled ${region} [True] = True'
+Is Rt Cc Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (47)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ${NrOfThumbnails} = shared_keywords.Generated Thumbnails For Channel 1 After 2 Seconds [ ]
++------ START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 2 seconds
++------ END KW: BuiltIn.Sleep (2031)
++------ START KW: ${NrOfFiles} = PCDetectorKeywords.Generated Thumbnails For Channel [ ${channel} ]
+${NrOfFiles} = 7336
++------ END KW: ${NrOfFiles} = PCDetectorKeywords.Generated Thumbnails For Channel (702)
+${NrOfThumbnails} = 7336
++----- END KW: ${NrOfThumbnails} = shared_keywords.Generated Thumbnails For Channel 1 After 2 Seconds (2733)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Enable Thumbnail Capturing [ ${region} ]
+Exception in Warning popup-Window: Not Found
+Warning pop-up Window is not displayed
++----- END KW: ChannelFeatureRegion.Enable Thumbnail Capturing (3822)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is thumbnail disabled | ${region} | = | True | within | 2 sec ]
+Interpreting '2 sec' as fixed value
++------ START KW: ChannelFeatureRegion.Is Thumbnail Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Thumbnail Disabled (31)
+'is thumbnail disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is thumbnail disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (15)
+Precondition check on 'is thumbnail disabled ${region} [True] = True' after 0 seconds
+Is Thumbnail Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ Generated Thumbnails For Channel 1 After 60 Seconds | = | ${NrOfThumbnails} ]
++------ START KW: shared_keywords.Generated Thumbnails For Channel 1 After 60 Seconds [ ]
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 1 minute
++------- END KW: BuiltIn.Sleep (60031)
++------- START KW: ${NrOfFiles} = PCDetectorKeywords.Generated Thumbnails For Channel [ ${channel} ]
+${NrOfFiles} = 7336
++------- END KW: ${NrOfFiles} = PCDetectorKeywords.Generated Thumbnails For Channel (530)
++------ END KW: shared_keywords.Generated Thumbnails For Channel 1 After 60 Seconds (60593)
+'Generated Thumbnails For Channel 1 After 60 Seconds' is '7336'
+Interpreting '${NrOfThumbnails}' as fixed value '7336'
+Evaluating 'Generated Thumbnails For Channel 1 After 60 Seconds [7336]' = '${NrOfThumbnails} [7336]'
++------ START KW: CheckOperator.= [ 7336 | 7336 ]
+Comparing evaluated keyword values
++------ END KW: CheckOperator.= (0)
+Requirement check on 'Generated Thumbnails For Channel 1 After 60 Seconds [7336] = ${NrOfThumbnails} [7336]'
+Generated Thumbnails For Channel 1 After 60 Seconds
+        =, 7336, 7336
++----- END KW: RobotChecks.Check That (60624)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: shared_keywords.Replace License File [ ${License_All_Features_Active} ]
++------ START KW: shared_keywords.Stop PC Detector Application [ ]
++------- START KW: PCDetector.Exit Application [ yes ]
+[log] CLICK on L(17,29)@S(0)[0,0 1460x963]
+[log] CLICK on L(122,116)@S(0)[0,0 1460x963]
+[log] CLICK on L(781,525)@S(0)[0,0 1460x963]
++------- END KW: PCDetector.Exit Application (2371)
++------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15008)
++------ END KW: shared_keywords.Stop PC Detector Application (17379)
++------ START KW: PCDetectorKeywords.Copy License File [ ${filename} ]
+SourceFile:  C:\PCDetector_Testing\Testing\Resources\LicenseFiles\TeletraxCVBSSVIDDetector_All_Features_Activated.lic
+DestinationFile:  F:\civolution\TeletraxCVBSSVIDDetector.lic
+FileExists value:  True
++------ END KW: PCDetectorKeywords.Copy License File (0)
++------ START KW: shared_keywords.Start PC Detector Application After 15 Seconds [ ]
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15032)
++------- START KW: PCDetectorKeywords.Kill PCDetector Process [ ]
++------- END KW: PCDetectorKeywords.Kill PCDetector Process (0)
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15016)
++------- START KW: shared_keywords.Start PC Detector Application [ ]
++-------- START KW: PCDetector.Start Application [ ]
+License warning not found, no need to make it disappear
++-------- END KW: PCDetector.Start Application (33056)
++-------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++-------- END KW: BuiltIn.Sleep (15016)
++-------- START KW: PCDetector.Maximize Application Window [ ]
+[log] CLICK on L(192,99)@S(0)[0,0 1460x963]
+[log] CLICK on L(1059,100)@S(0)[0,0 1460x963]
++-------- END KW: PCDetector.Maximize Application Window (2044)
++------- END KW: shared_keywords.Start PC Detector Application (50131)
++------ END KW: shared_keywords.Start PC Detector Application After 15 Seconds (80210)
++----- END KW: shared_keywords.Replace License File (97604)
+------------------------------------------------------------------------------
++---- END TEST: Enable Thumbnail Capturing Feature Channel 1-Matrox, License Does Not Support Thumbnail Feature (267779)
+------------------------------------------------------------------------------
++---- START TEST: Verify AFP Streaming Channel 1 for matrox [ ]
+------------------------------------------------------------------------------
++----- START KW: ${region} = shared_keywords.Region For Channel 1 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (47)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3071)
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 1 (3118)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is afp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Afp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Afp Disabled (32)
+'is afp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is afp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is afp disabled ${region} [True] = True'
+Is Afp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is rt afp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Afp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Afp Disabled (31)
+'is rt afp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt afp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is rt afp disabled ${region} [True] = True'
+Is Rt Afp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Enable Afp Streaming [ ${region} ]
+Exception in Warning popup-Window: Not Found
+Warning pop-up Window is not displayed
++----- END KW: ChannelFeatureRegion.Enable Afp Streaming (3822)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is rt afp disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Afp Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Afp Disabled (31)
+'is rt afp disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt afp disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Requirement check on 'is rt afp disabled ${region} [True] = True'
+Is Rt Afp Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (62)
+------------------------------------------------------------------------------
++---- END TEST: Verify AFP Streaming Channel 1 for matrox (7142)
+------------------------------------------------------------------------------
++---- START TEST: Verify Close Captioning Channel 1 for matrox [ ]
+------------------------------------------------------------------------------
++----- START KW: ${region} = shared_keywords.Region For Channel 1 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (46)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3071)
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 1 (3117)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is cc disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Cc Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Cc Disabled (31)
+'is cc disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is cc disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is cc disabled ${region} [True] = True'
+Is Cc Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is rt cc disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Cc Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Cc Disabled (31)
+'is rt cc disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt cc disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Precondition check on 'is rt cc disabled ${region} [True] = True'
+Is Rt Cc Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Enable Closed Captioning [ ${region} ]
+Exception in Warning popup-Window: Not Found
+Warning pop-up Window is not displayed
++----- END KW: ChannelFeatureRegion.Enable Closed Captioning (4134)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is cc disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Cc Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Cc Disabled (32)
+'is cc disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is cc disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (15)
+Requirement check on 'is cc disabled ${region} [True] = True'
+Is Cc Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (62)
+------------------------------------------------------------------------------
++---- END TEST: Verify Close Captioning Channel 1 for matrox (7454)
+------------------------------------------------------------------------------
++---- START TEST: Verify CC Streaming Channel 1 for matrox [ ]
+------------------------------------------------------------------------------
++----- START KW: ${region} = shared_keywords.Region For Channel 1 [ ]
++------ START KW: ${region} = ChannelRegion.Channel Region [ ${channel} ]
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++------ END KW: ${region} = ChannelRegion.Channel Region (32)
++------ START KW: ChannelRegion.Confirm Error [ ${region} ]
+Channel Confirm Error : Not active
++------ END KW: ChannelRegion.Confirm Error (3071)
+${region} = R[12,76 911x63]@S(0)[0,0 1460x963] E:Y, T:3.0
++----- END KW: ${region} = shared_keywords.Region For Channel 1 (3118)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is cc disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Cc Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Cc Disabled (31)
+'is cc disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is cc disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (16)
+Precondition check on 'is cc disabled ${region} [True] = True'
+Is Cc Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check Precondition [ is rt cc disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Cc Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Cc Disabled (31)
+'is rt cc disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt cc disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Precondition check on 'is rt cc disabled ${region} [True] = True'
+Is Rt Cc Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check Precondition (62)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: ChannelFeatureRegion.Enable Cc Streaming [ ${region} ]
+Exception in Warning popup-Window: Not Found
+Warning pop-up Window is not displayed
++----- END KW: ChannelFeatureRegion.Enable Cc Streaming (3853)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: RobotChecks.Check That [ is rt cc disabled | ${region} | = | True ]
++------ START KW: ChannelFeatureRegion.Is Rt Cc Disabled [ ${region} ]
++------ END KW: ChannelFeatureRegion.Is Rt Cc Disabled (32)
+'is rt cc disabled ${region}' is 'True'
+Interpreting 'True' as fixed value
+Evaluating 'is rt cc disabled ${region} [True]' = 'True'
++------ START KW: CheckOperator.= [ True | True ]
+Comparing as boolean values
++------ END KW: CheckOperator.= (0)
+Requirement check on 'is rt cc disabled ${region} [True] = True'
+Is Rt Cc Disabled, ${region}
+        =, True, True
++----- END KW: RobotChecks.Check That (62)
+------------------------------------------------------------------------------
++---- END TEST: Verify CC Streaming Channel 1 for matrox (7174)
+------------------------------------------------------------------------------
++---- START TEARDOWN: shared_keywords.Set Ceco Length [ ${15Minutes} ]
++----- START KW: ${RestartRequired} = PCDetector.Set Ceco Length And Stop Application [ ${CecoLength} ]
+Before checking the ceco
+Scores 15_min_ceco=0.908942461014 and 2_min_ceco=0.953791618347 
+Before finding settings area
+Before finding settings input area
+Before finding Dailog Button
+Warning pop-up Window found
+${RestartRequired} = True
++----- END KW: ${RestartRequired} = PCDetector.Set Ceco Length And Stop Application (6297)
++----- START KW: BuiltIn.Run Keyword If [ ${RestartRequired} | Start PC Detector Application After 15 Seconds ]
++------ START KW: shared_keywords.Start PC Detector Application After 15 Seconds [ ]
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15016)
++------- START KW: PCDetectorKeywords.Kill PCDetector Process [ ]
++------- END KW: PCDetectorKeywords.Kill PCDetector Process (0)
++------- START KW: BuiltIn.Sleep [ ${seconds} sec ]
+Slept 15 seconds
++------- END KW: BuiltIn.Sleep (15016)
++------- START KW: shared_keywords.Start PC Detector Application [ ]
++-------- START KW: PCDetector.Start Application [ ]
+License warning not found, no need to make it disappear
++-------- END KW: PCDetector.Start Application (33680)
++-------- START KW: BuiltIn.Sleep [ 15 sec ]
+Slept 15 seconds
++-------- END KW: BuiltIn.Sleep (15007)
++-------- START KW: PCDetector.Maximize Application Window [ ]
+[log] CLICK on L(258,165)@S(0)[0,0 1460x963]
+[log] CLICK on L(1125,166)@S(0)[0,0 1460x963]
++-------- END KW: PCDetector.Maximize Application Window (1950)
++------- END KW: shared_keywords.Start PC Detector Application (50637)
++------ END KW: shared_keywords.Start PC Detector Application After 15 Seconds (80716)
++----- END KW: BuiltIn.Run Keyword If (80731)
++---- END TEARDOWN: shared_keywords.Set Ceco Length (87028)
+==============================================================================
++--- END SUITE: Robot.Tests.Functional Tests.Enable and Disable Features (1998842)
+==============================================================================
++--- START SUITE: Robot.Tests.Functional Tests.Stop Application [ ]
+==============================================================================
++---- START TEST: Stop PC Detector Application [ ]
+------------------------------------------------------------------------------
++----- START KW: PCDetector.Exit Application [ no ]
+[log] CLICK on L(17,29)@S(0)[0,0 1460x963]
+[log] CLICK on L(122,116)@S(0)[0,0 1460x963]
+[log] CLICK on L(863,527)@S(0)[0,0 1460x963]
++----- END KW: PCDetector.Exit Application (3572)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: PCDetector.Close Application Window [ yes ]
+Closing the application window failed
+Failed to find dialog title or dialog button
++----- END KW: PCDetector.Close Application Window (6989)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++----- START KW: BuiltIn.Sleep [ 2 sec ]
+Slept 2 seconds
++----- END KW: BuiltIn.Sleep (2031)
+------------------------------------------------------------------------------
++---- END TEST: Stop PC Detector Application (12608)
+------------------------------------------------------------------------------
++--- END SUITE: Robot.Tests.Functional Tests.Stop Application (12842)
+==============================================================================
++-- END SUITE: Robot.Tests.Functional Tests (2652698)
+==============================================================================
++- END SUITE: Robot.Tests (2652948)
+==============================================================================
++ END SUITE: Robot (2653260)
+==============================================================================
